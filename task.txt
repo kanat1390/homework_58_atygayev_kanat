@@ -1,3 +1,0 @@
-from django.utils import timezone
-import datetime
-Task.objects.filter(updated_at__gte = timezone.now() - timedelta(days=30), status__name="Выполнено")

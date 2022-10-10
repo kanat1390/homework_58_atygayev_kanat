@@ -1,0 +1,10 @@
+from django.utils import timezone
+import datetime
+from django.db.models import Q
+from tasks.models import Task
+
+1)Task.objects.filter(updated_at__gte = timezone.now() - timedelta(days=30), status__name="Выполнено")
+2)Task.objects.filter(Q(status__name="В процессе")|Q(status__name="Новый")&Q(types__name="Задача")|Q(types__name="Баг")).distinct()
+3)Task.objects.filter(Q(summary__icontains="bug") | Q(types__name="Баг") & Q(status__name="Выполнено")).distinct()
+
+
