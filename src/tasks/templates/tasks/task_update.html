@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+Редактирование задачи
+{% endblock page_title %}
+
+{% block navigation %}
+{% include "tasks/includes/back_btn.html" %}
+{% endblock navigation %}
+
+{% block content %}
+{% include "tasks/includes/task_form.html" with title="Изменение задачи" btn_text="Изменить" %}
+{% endblock content %}

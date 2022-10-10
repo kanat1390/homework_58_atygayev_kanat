@@ -1,0 +1,28 @@
+body {
+  background-color: rgb(238, 238, 238);
+}
+
+.nav-link-custom {
+  color: black;
+}
+
+.task-item {
+  text-decoration: none;
+  color: black;
+}
+.task-item:hover {
+  color: rgb(92, 92, 92);
+}
+.detail-title {
+  font-size: 20px;
+  color: rgb(64, 64, 64);
+}
+
+.type-label {
+  padding: 4px;
+  font-size: 15px;
+}
+
+.form-control-custom {
+  width: 200px;
+}

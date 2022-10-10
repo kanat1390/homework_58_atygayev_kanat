@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+IssueTracker
+{% endblock page_title %}
+{% block navigation %}
+{% include "tasks/includes/navigation.html" %}
+{% endblock navigation %}
+{% block title %}
+<h5 class="text-center">Список задач</h5>
+{% endblock title %}
+
+{% block content %}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Краткое описание</th>
+            <th scope="col">Статус</th>
+            <th scope="col">Дата создания</th>
+            <th scope="col">Последние изменения</th>
+            <th scope="col">Действия</th>
+        </tr>
+    </thead>
+    {% for task in task_list %}
+    <tbody>
+        {% include "tasks/includes/task_delete.html" %}
+        <tr>
+            <td><a class="task-item" href="{{ task.get_detail_url }}">{{ task.summary }}</a></td>
+            <td>
+                <span style="padding:4px;">
+                    {{ task.status }}
+                </span>
+            </td>
+            <td>{{ task.created_at}}</td>
+            <td>{{ task.get_date }}</td>
+            <td>
+                <div class="d-flex justify-content-start gap-3">
+                    <a href="{{ task.get_update_url }}">
+                        <img src="{% static 'tasks/icons/edit.svg' %}" alt="edit" width="15px">
+                    </a>
+                    <a data-bs-toggle="modal" data-bs-target="#deleteModal{{task.pk}}">
+                        <img src="{% static 'tasks/icons/trash.svg' %}" alt="edit" width="15px">
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+{% endblock content %}

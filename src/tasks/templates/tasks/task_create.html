@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+Добавление задачи
+{% endblock page_title %}
+
+{% block navigation %}
+{% include "tasks/includes/back_btn.html" %}
+{% endblock navigation %}
+
+{% block content %}
+{% include "tasks/includes/task_form.html" with title="Добавление задачи" btn_text="Добавить" %}
+{% endblock content %}
